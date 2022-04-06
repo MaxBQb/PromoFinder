@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_arrow_end.xml" value="0.101" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_arrow_start.xml" value="0.101" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_domino.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_logo.xml" value="0.16" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/welcome_fragment.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/wellcome_fragment.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
