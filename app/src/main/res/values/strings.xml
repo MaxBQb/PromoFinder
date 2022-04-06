@@ -1,13 +1,20 @@
 <resources>
     <string name="app_name">PromoFinder</string>
+
+    <!--  Navigation + Drawer  -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+        <!--  Sections  -->
+        <string name="menu_home">Home</string>
+        <string name="menu_gallery">Gallery</string>
+        <string name="menu_slideshow">Slideshow</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <!--  Welcome Fragment  -->
+    <string name="welcome_label">Добро пожаловать!</string>
+    <string name="next_with_account_button">Войти / Зарегистрироваться</string>
+    <string name="next_without_account_button">Продолжить без регистрации</string>
 </resources>
