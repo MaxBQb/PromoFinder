@@ -3,17 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/bottom_border.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_arrow_end.xml" value="0.101" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_arrow_start.xml" value="0.101" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_domino.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_logo.xml" value="0.16" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_user.xml" value="0.1245" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/input_border.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/auth_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_login.xml" value="0.12008547008547009" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/login_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/signup_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/welcome_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/wellcome_fragment.xml" value="0.1" />
       </map>

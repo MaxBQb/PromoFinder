@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.InputType"/>
+        <variable
+            name="data"
+            type="edu.mirea_ikbo0619.promofinder.ui.auth.AuthViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".ui.auth.SignupFragment">
+
+        <TextView
+            style="@style/title"
+            android:text="@string/username_label" />
+
+        <EditText
+            style="@style/bordered_input"
+            android:drawableStart="@drawable/ic_user"
+            android:text="@={data.username}" />
+
+        <TextView
+            style="@style/title"
+            android:text="@string/email_label" />
+
+        <EditText
+            style="@style/bordered_input"
+            android:drawableStart="@drawable/ic_email"
+            android:inputType="textEmailAddress"
+            android:text="@={data.email}" />
+
+        <TextView
+            style="@style/title"
+            android:text="@string/password_label" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/bordered_input"
+            android:inputType="@{InputType.TYPE_CLASS_TEXT | (data.isPasswordVisible ? InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD : InputType.TYPE_TEXT_VARIATION_PASSWORD) }"
+            android:drawableStart="@{data.isPasswordVisible ? @drawable/ic_lock_open : @drawable/ic_lock}"
+            android:text="@={data.password}" />
+
+        <TextView
+            style="@style/title"
+            android:text="@string/repeat_password_label" />
+
+        <EditText
+            android:id="@+id/password2"
+            style="@style/bordered_input"
+            android:inputType="@{InputType.TYPE_CLASS_TEXT | (data.isPasswordVisible ? InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD : InputType.TYPE_TEXT_VARIATION_PASSWORD) }"
+            android:drawableStart="@{data.isPasswordVisible ? @drawable/ic_lock_open : @drawable/ic_lock}"
+            android:drawableEnd="@{(data.password.equals(data.password2) &amp;&amp; !data.password.isEmpty()) ? @drawable/ic_good : null}"
+            android:text="@={data.password2}" />
+    </LinearLayout>
+</layout>

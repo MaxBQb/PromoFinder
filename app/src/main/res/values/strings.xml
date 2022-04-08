@@ -8,13 +8,26 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-        <!--  Sections  -->
-        <string name="menu_home">Home</string>
-        <string name="menu_gallery">Gallery</string>
-        <string name="menu_slideshow">Slideshow</string>
+    <!--  Sections  -->
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
     <!--  Welcome Fragment  -->
     <string name="welcome_label">Добро пожаловать!</string>
     <string name="next_with_account_button">Войти / Зарегистрироваться</string>
     <string name="next_without_account_button">Продолжить без регистрации</string>
+
+    <!--  Auth Fragment  -->
+    <string name="tab_signin_label">Войти</string>
+    <string name="tab_signup_label">Зарегистрироваться</string>
+    <string name="back_to_welcome_screen">Вернуться на экран приветствия</string>
+    <string name="signin_button">Войти в аккаунт</string>
+    <string name="signup_button">Зарегистрироваться</string>
+        <!--  Login Fragment  -->
+        <string name="username_label">Имя пользователя</string>
+        <string name="password_label">Пароль</string>
+        <!--  Signup Fragment  -->
+        <string name="email_label">Почта</string>
+        <string name="repeat_password_label">Повторите пароль</string>
 </resources>

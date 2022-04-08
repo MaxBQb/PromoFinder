@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.welcome.WelcomeFragment">
 
-    <!-- Финальное приветствие -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/some_id"
         android:layout_width="match_parent"
@@ -37,23 +36,18 @@
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_24sdp"
-            android:layout_marginEnd="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
-            android:orientation="vertical"
+            style="@style/button_container"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/next_unauthorized"
                 style="@style/wide_button_secondary"
                 android:drawableEnd="@drawable/ic_arrow_end"
                 android:text="@string/next_without_account_button" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/next_signed"
                 style="@style/wide_button_primary"
                 android:drawableEnd="@drawable/ic_arrow_end"

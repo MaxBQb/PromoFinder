@@ -9,5 +9,15 @@
         android:id="@+id/welcomeFragment"
         android:name="edu.mirea_ikbo0619.promofinder.ui.welcome.WelcomeFragment"
         android:label="welcome_fragment"
-        tools:layout="@layout/welcome_fragment" />
+        tools:layout="@layout/welcome_fragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="edu.mirea_ikbo0619.promofinder.ui.auth.AuthFragment"
+        android:label="auth_fragment"
+        tools:layout="@layout/auth_fragment" />
 </navigation>

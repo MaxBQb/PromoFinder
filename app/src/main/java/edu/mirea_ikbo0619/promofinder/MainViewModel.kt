@@ -4,5 +4,5 @@ import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    var showToolbar = ObservableBoolean(false)
+    val showToolbar = ObservableBoolean(false)
 }
