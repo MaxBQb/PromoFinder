@@ -4,8 +4,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_header_height"
-        android:background="@drawable/side_nav_bar"
-        android:gravity="bottom"
+        android:background="@color/background"
+        android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
@@ -15,23 +15,25 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
             android:contentDescription="@string/nav_header_desc"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            app:srcCompat="@drawable/ic_logo" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="@string/nav_header_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/_8sdp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textSize="@dimen/_24sdp"
+            android:textAppearance="@style/title" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_header_subtitle" />
     </LinearLayout>
 </layout>

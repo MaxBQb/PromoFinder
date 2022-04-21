@@ -5,14 +5,25 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/welcomeFragment">
 
+    <action
+        android:id="@+id/action_homeFragment_to_welcomeFragment"
+        app:destination="@id/welcomeFragment"
+        app:popUpTo="@+id/welcomeFragment"
+        app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="edu.mirea_ikbo0619.promofinder.ui.welcome.WelcomeFragment"
+        android:name="edu.mirea_ikbo0619.promofinder.ui.auth.WelcomeFragment"
         android:label="welcome_fragment"
         tools:layout="@layout/welcome_fragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <fragment
@@ -20,4 +31,9 @@
         android:name="edu.mirea_ikbo0619.promofinder.ui.auth.AuthFragment"
         android:label="auth_fragment"
         tools:layout="@layout/auth_fragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="edu.mirea_ikbo0619.promofinder.ui.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/fragment_home" />
 </navigation>

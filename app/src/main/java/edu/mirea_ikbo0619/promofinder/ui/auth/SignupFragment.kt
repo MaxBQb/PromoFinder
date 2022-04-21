@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import edu.mirea_ikbo0619.promofinder.databinding.SignupFragmentBinding
 import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class SignupFragment : Fragment() {
@@ -16,7 +17,7 @@ class SignupFragment : Fragment() {
     }
 
     private var binding: SignupFragmentBinding by autoCleaned()
-    private var viewModel: AuthViewModel by autoCleaned()
+    private val viewModel: AuthViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +28,6 @@ class SignupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (parentFragment as AuthFragment).viewModel
         binding.data = viewModel
         val togglePassword = { _: View ->
             viewModel.togglePasswordVisibility()

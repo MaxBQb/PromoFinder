@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import edu.mirea_ikbo0619.promofinder.databinding.LoginFragmentBinding
 import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class LoginFragment : Fragment() {
@@ -17,7 +17,7 @@ class LoginFragment : Fragment() {
     }
 
     private var binding: LoginFragmentBinding by autoCleaned()
-    private var viewModel: AuthViewModel by autoCleaned()
+    private val viewModel: AuthViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +28,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (parentFragment as AuthFragment).viewModel
         binding.data = viewModel
         binding.password.setOnLongClickListener {
             viewModel.togglePasswordVisibility()

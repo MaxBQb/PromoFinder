@@ -7,6 +7,9 @@
         <variable
             name="data"
             type="edu.mirea_ikbo0619.promofinder.MainViewModel" />
+        <variable
+            name="auth"
+            type="edu.mirea_ikbo0619.promofinder.ui.auth.AuthViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -14,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:background="@color/background"
         tools:openDrawer="start">
 
         <include
@@ -28,7 +32,19 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:background="@color/background"
+            app:itemTextAppearance="@style/nav_item"
             app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer" />
+            app:menu="@menu/activity_main_drawer">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sign_out"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:icon="@{auth.isAnonymous ? @drawable/ic_authorize : @drawable/ic_sign_out, default=@drawable/ic_sign_out}"
+                    style="@style/nav_button"
+                    android:text="@{auth.isAnonymous ? @string/menu_sign_up : @string/menu_sign_out, default=@string/menu_sign_out}"
+                    />
+        </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

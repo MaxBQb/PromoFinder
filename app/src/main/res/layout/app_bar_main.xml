@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="android.view.View"/>
         <variable
             name="data"
             type="edu.mirea_ikbo0619.promofinder.MainViewModel" />
+        <variable
+            name="auth"
+            type="edu.mirea_ikbo0619.promofinder.ui.auth.AuthViewModel" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -16,14 +18,14 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:elevation="0dp"
             android:theme="@style/Theme.PromoFinder.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:visibility="@{ data.showToolbar ? View.VISIBLE : View.GONE }"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/background"
                 app:popupTheme="@style/Theme.PromoFinder.PopupOverlay" />
 
         </com.google.android.material.appbar.AppBarLayout>

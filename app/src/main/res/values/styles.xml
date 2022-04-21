@@ -14,6 +14,11 @@
     <style name="title" parent="text">
         <item name="android:textSize">@dimen/_18sdp</item>
     </style>
+    <style name="nav_item" parent="text">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <!--  Buttons  -->
     <style name="wide_button">
@@ -37,11 +42,33 @@
     <style name="wide_button_secondary" parent="wide_button">
         <item name="materialThemeOverlay">@style/wide_button_secondary.theme</item>
     </style>
+    <style name="wide_button_bg" parent="wide_button">
+        <item name="materialThemeOverlay">@style/wide_button_bg_theme</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:radius">0dp</item>
+        <item name="cornerRadius">0dp</item>
+    </style>
+    <style name="nav_button" parent="wide_button_bg">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="iconPadding">@dimen/_13sdp</item>
+        <item name="android:paddingStart">@dimen/_24sdp</item>
+        <item name="android:paddingBottom">@dimen/_16sdp</item>
+        <item name="android:paddingTop">@dimen/_16sdp</item>
+        <item name="android:gravity">start|center_vertical</item>
+    </style>
     <style name="wide_button_primary.theme">
         <item name="colorPrimary">@color/primaryColor</item>
     </style>
     <style name="wide_button_secondary.theme">
         <item name="colorPrimary">@color/secondaryColor</item>
+    </style>
+    <style name="wide_button_bg_theme">
+        <item name="colorPrimary">@color/background</item>
     </style>
     <style name="ShapeAppearanceOverlay.PromoFinder.Button.Circle" parent="">
         <item name="cornerFamily">rounded</item>

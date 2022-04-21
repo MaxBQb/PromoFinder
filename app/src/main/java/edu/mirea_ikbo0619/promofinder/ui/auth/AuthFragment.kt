@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import edu.mirea_ikbo0619.promofinder.databinding.AuthFragmentBinding
 import edu.mirea_ikbo0619.promofinder.utils.goBack
 import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class AuthFragment : Fragment() {
@@ -21,7 +20,7 @@ class AuthFragment : Fragment() {
         fun newInstance() = AuthFragment()
     }
 
-    val viewModel: AuthViewModel by viewModels()
+    val viewModel: AuthViewModel by sharedViewModel()
     private var binding: AuthFragmentBinding by autoCleaned()
 
     override fun onCreateView(
@@ -46,5 +45,13 @@ class AuthFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
         binding.back.setOnClickListener { goBack() }
+        binding.next.setOnClickListener {
+            val success = if (viewModel.isSignInSelected.get())
+                viewModel.signIn()
+            else
+                viewModel.signUp()
+            if (success)
+                goBack()
+        }
     }
 }

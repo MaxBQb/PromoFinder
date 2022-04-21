@@ -1,16 +1,15 @@
-package edu.mirea_ikbo0619.promofinder.ui.welcome
+package edu.mirea_ikbo0619.promofinder.ui.auth
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import edu.mirea_ikbo0619.promofinder.R
 import edu.mirea_ikbo0619.promofinder.databinding.WelcomeFragmentBinding
 import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+
 
 class WelcomeFragment : Fragment() {
 
@@ -18,7 +17,7 @@ class WelcomeFragment : Fragment() {
         fun newInstance() = WelcomeFragment()
     }
 
-    private val viewModel: WelcomeViewModel by viewModels()
+    private val viewModel: AuthViewModel by sharedViewModel()
     private var binding: WelcomeFragmentBinding by autoCleaned()
 
     override fun onCreateView(
@@ -31,7 +30,20 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.nextSigned.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_authFragment)
+            findNavController().navigate(
+                WelcomeFragmentDirections.actionWelcomeFragmentToAuthFragment()
+            )
+        }
+        binding.nextUnauthorized.setOnClickListener {
+            viewModel.signInAnonymous()
+        }
+        viewModel.isAuthorized.observe(viewLifecycleOwner) { authorized ->
+            if (authorized) {
+                findNavController().navigate(
+                    WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
+                )
+            } else if (viewModel.wasAuthorized)
+                viewModel.handleWasAuthorized()
         }
     }
 }
