@@ -6,32 +6,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import edu.mirea_ikbo0619.promofinder.MainActivity
-import edu.mirea_ikbo0619.promofinder.databinding.FragmentHomeBinding
+import edu.mirea_ikbo0619.promofinder.databinding.HomeFragmentBinding
+import edu.mirea_ikbo0619.promofinder.utils.autoCleaned
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    companion object {
+        fun newInstance() = HomeFragment()
+    }
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private val viewModel: HomeViewModel by viewModel()
+    private var binding: HomeFragmentBinding by autoCleaned()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ) = HomeFragmentBinding.inflate(inflater, container, false).also {
+        binding = it
+    }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.data = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         (requireActivity() as MainActivity).setHomeIndicator()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

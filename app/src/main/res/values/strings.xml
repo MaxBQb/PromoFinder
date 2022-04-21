@@ -32,4 +32,7 @@
         <!--  Signup Fragment  -->
         <string name="email_label">Почта</string>
         <string name="repeat_password_label">Повторите пароль</string>
+
+    <!--  Home Fragment  -->
+    <string name="search_label">Введите название</string>
 </resources>

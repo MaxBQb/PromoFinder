@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/rounded_edittext_states.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/rounded_edittext_base"/>
+    <item android:top="@dimen/_20sdp" android:left="@dimen/_2sdp" android:right="@dimen/_2sdp">
+        <shape android:shape="line" >
+            <stroke android:width="@dimen/_3sdp" android:color="@color/black" />
+        </shape>
+    </item>
+    <item android:top="@dimen/_20sdp" android:left="@dimen/_2sdp" android:right="@dimen/_2sdp">
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/_1sdp" android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list>

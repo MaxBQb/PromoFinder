@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import edu.mirea_ikbo0619.promofinder.databinding.AuthFragmentBinding
 import edu.mirea_ikbo0619.promofinder.utils.goBack
-import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import edu.mirea_ikbo0619.promofinder.utils.autoCleaned
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
@@ -34,6 +34,7 @@ class AuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewPager.adapter = SectionsPagerAdapter(this)
         binding.data = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = getString(TAB_TITLES[position])
         }.attach()

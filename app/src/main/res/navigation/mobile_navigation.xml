@@ -35,5 +35,5 @@
         android:id="@+id/homeFragment"
         android:name="edu.mirea_ikbo0619.promofinder.ui.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment" />
 </navigation>

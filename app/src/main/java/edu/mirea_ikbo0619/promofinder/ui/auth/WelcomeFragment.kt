@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.mirea_ikbo0619.promofinder.databinding.WelcomeFragmentBinding
-import lab.maxb.dark.Presentation.Extra.Delegates.autoCleaned
+import edu.mirea_ikbo0619.promofinder.utils.autoCleaned
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 

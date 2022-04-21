@@ -1,4 +1,4 @@
-package lab.maxb.dark.Presentation.Extra.Delegates
+package edu.mirea_ikbo0619.promofinder.utils
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
