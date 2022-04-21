@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.mirea_ikbo0619.promofinder.databinding.WelcomeFragmentBinding
@@ -38,12 +39,16 @@ class WelcomeFragment : Fragment() {
             viewModel.signInAnonymous()
         }
         viewModel.isAuthorized.observe(viewLifecycleOwner) { authorized ->
-            if (authorized) {
-                findNavController().navigate(
-                    WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
-                )
-            } else if (viewModel.wasAuthorized)
-                viewModel.handleWasAuthorized()
+            binding.buttonsContainer.isVisible = when {
+                authorized -> {
+                    findNavController().navigate(
+                        WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
+                    )
+                    false
+                }
+                viewModel.wasAuthorized -> !viewModel.handleWasAuthorized()
+                else -> true
+            }
         }
     }
 }

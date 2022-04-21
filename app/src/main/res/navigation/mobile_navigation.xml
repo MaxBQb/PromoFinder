@@ -14,7 +14,7 @@
         android:id="@+id/welcomeFragment"
         android:name="edu.mirea_ikbo0619.promofinder.ui.auth.WelcomeFragment"
         android:label="welcome_fragment"
-        tools:layout="@layout/welcome_fragment" >
+        tools:layout="@layout/welcome_fragment">
         <action
             android:id="@+id/action_welcomeFragment_to_authFragment"
             app:destination="@id/authFragment" />
