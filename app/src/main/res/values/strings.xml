@@ -26,13 +26,21 @@
     <string name="back_to_welcome_screen">Вернуться на экран приветствия</string>
     <string name="signin_button">Войти в аккаунт</string>
     <string name="signup_button">Зарегистрироваться</string>
-        <!--  Login Fragment  -->
-        <string name="username_label">Имя пользователя</string>
-        <string name="password_label">Пароль</string>
-        <!--  Signup Fragment  -->
-        <string name="email_label">Почта</string>
-        <string name="repeat_password_label">Повторите пароль</string>
+    <!--  Login Fragment  -->
+    <string name="username_label">Имя пользователя</string>
+    <string name="password_label">Пароль</string>
+    <!--  Signup Fragment  -->
+    <string name="email_label">Почта</string>
+    <string name="repeat_password_label">Повторите пароль</string>
 
     <!--  Home Fragment  -->
     <string name="search_label">Введите название</string>
+    <string name="welcome_home_label">Здравствуйте!Чтобы найти нужный вам промокод, воспользуйтесь поиском!</string>
+    <!--  PromoCard  -->
+    <string name="expiration_date">Действует до: %s</string>
+    <string name="button_get_promocode">Получить</string>
+    <string name="loading_text">Загружается…</string>
+    <string name="no_results_label">Нет результатов</string>
+    <string name="promocode_clipboard_description">Промокод (%s)</string>
+    <string name="copied_to_clipboard">Промокод скопирован!</string>
 </resources>

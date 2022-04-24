@@ -7,57 +7,128 @@
             name="data"
             type="edu.mirea_ikbo0619.promofinder.ui.home.HomeViewModel" />
     </data>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".ui.home.HomeFragment">
+
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/search_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/rounded_edittext_base"
+            android:orientation="horizontal"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_8sdp"
-            android:background="@drawable/rounded_edittext_base">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/promocodes_list"
+            app:layout_constraintTop_toTopOf="parent">
+
             <EditText
                 android:id="@+id/search"
-                android:hint="@string/search_label"
-                android:textSize="@dimen/_18sdp"
-                android:fontFamily="sans-serif"
-                android:layout_height="match_parent"
-                android:background="@drawable/rounded_edittext"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
                 android:layout_weight="10"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="sans-serif"
+                android:hint="@string/search_label"
+                android:inputType="text"
+                android:lines="1"
                 android:paddingStart="@dimen/_6sdp"
                 android:paddingEnd="@dimen/_6sdp"
                 android:paddingBottom="@dimen/_8sdp"
-                android:layout_margin="0dp"
-                android:lines="1"
-                android:inputType="text"/>
+                android:text="@={data.query}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_18sdp" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:width="0dp"
-                android:layout_weight="1"
                 android:layout_margin="0dp"
-                android:src="@drawable/ic_search"/>
+                android:layout_weight="1"
+                android:width="0dp"
+                android:src="@drawable/ic_search" />
         </LinearLayout>
+
         <TextView
-            android:id="@+id/text_home"
+            android:id="@+id/welcome_label"
+            style="@style/title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:gravity="center"
+            android:text="@string/welcome_home_label"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="@dimen/_36sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/search_layout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/promocodes_list"
+            android:name="edu.mirea_ikbo0619.promofinder.ui.HomeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:visibility="gone"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_layout"
+            tools:context=".ui.HomeFragment"
+            tools:listitem="@layout/promocode_fragment_item"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/companies_list"
+            android:name="edu.mirea_ikbo0619.promofinder.ui.HomeFragment"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:background="@drawable/dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintHeight_max="@dimen/_210sdp"
+            app:layout_constraintTop_toBottomOf="@+id/search_layout"
+            tools:context=".ui.HomeFragment"
+            tools:listitem="@layout/company_fragment_item"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/no_items_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:background="@drawable/dropdown"
+            android:gravity="center"
+            android:paddingTop="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="@string/no_results_label"
+            android:textAppearance="@style/text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_layout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
