@@ -12,7 +12,7 @@ import androidx.paging.LoadState
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
 import com.wada811.databinding.dataBinding
-import edu.mirea_ikbo0619.promofinder.MainActivity
+import edu.mirea_ikbo0619.promofinder.MainViewModel
 import edu.mirea_ikbo0619.promofinder.R
 import edu.mirea_ikbo0619.promofinder.databinding.HomeFragmentBinding
 import edu.mirea_ikbo0619.promofinder.utils.autoCleaned
@@ -21,7 +21,7 @@ import edu.mirea_ikbo0619.promofinder.utils.observe
 import edu.mirea_ikbo0619.promofinder.utils.set
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
@@ -30,7 +30,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         fun newInstance() = HomeFragment()
     }
 
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel: HomeViewModel by sharedViewModel()
+    private val mainViewModel: MainViewModel by sharedViewModel()
     private val binding: HomeFragmentBinding by dataBinding()
     private var suggestionsAdapter: CompaniesListAdapter by autoCleaned()
     private var resultsAdapter: PromocodesListAdapter by autoCleaned()
@@ -38,17 +39,18 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.data = viewModel
-        (requireActivity() as MainActivity).setHomeIndicator()
-
+        mainViewModel.setHomeIndicator()
         suggestionsAdapter = CompaniesListAdapter()
         resultsAdapter = PromocodesListAdapter()
         binding.companiesList.adapter = suggestionsAdapter
         binding.promocodesList.adapter = resultsAdapter
         observe(viewModel.query) {
+            viewModel.query2
             lifecycleScope.launch {
                 viewModel.getCompanies(it).collectLatest(suggestionsAdapter::submitData)
             }
         }
+        viewModel.query2++
         observe(viewModel.selectedCompany) {
             it ?: return@observe
             lifecycleScope.launch {
@@ -100,7 +102,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             binding.noItemsFound.isVisible = !it && viewModel.isSuggestionsVisible.value!!
         }
 
-        binding.search.setOnFocusChangeListener { view, isFocused ->
+        binding.search.setOnFocusChangeListener { _, isFocused ->
             viewModel.isSuggestionsVisible.set(isFocused)
         }
 

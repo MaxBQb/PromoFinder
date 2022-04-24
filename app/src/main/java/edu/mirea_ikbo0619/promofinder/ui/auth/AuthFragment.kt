@@ -1,40 +1,31 @@
 package edu.mirea_ikbo0619.promofinder.ui.auth
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
+import com.wada811.databinding.dataBinding
+import edu.mirea_ikbo0619.promofinder.R
 import edu.mirea_ikbo0619.promofinder.databinding.AuthFragmentBinding
 import edu.mirea_ikbo0619.promofinder.utils.goBack
-import edu.mirea_ikbo0619.promofinder.utils.autoCleaned
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class AuthFragment : Fragment() {
+class AuthFragment : Fragment(R.layout.auth_fragment) {
 
     companion object {
         fun newInstance() = AuthFragment()
     }
 
     val viewModel: AuthViewModel by sharedViewModel()
-    private var binding: AuthFragmentBinding by autoCleaned()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = AuthFragmentBinding.inflate(inflater, container, false).also {
-        binding = it
-    }.root
+    private val binding: AuthFragmentBinding by dataBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewPager.adapter = SectionsPagerAdapter(this)
         binding.data = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = getString(TAB_TITLES[position])
         }.attach()

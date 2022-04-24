@@ -4,7 +4,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -17,34 +16,36 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.wada811.databinding.dataBinding
 import edu.mirea_ikbo0619.promofinder.databinding.ActivityMainBinding
 import edu.mirea_ikbo0619.promofinder.ui.auth.AuthViewModel
 import edu.mirea_ikbo0619.promofinder.utils.hideKeyboard
+import edu.mirea_ikbo0619.promofinder.utils.observe
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(R.layout.activity_main),
+    NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var actionBarToggle: ActionBarDrawerToggle
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
+    private val binding: ActivityMainBinding by dataBinding()
+    private val viewModel: MainViewModel by viewModel()
     private val authViewModel: AuthViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
         binding.data = viewModel
         binding.auth = authViewModel
-        binding.lifecycleOwner = this
-        setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        actionBarToggle = ActionBarDrawerToggle(this, binding.drawerLayout, binding.appBarMain.toolbar, 0, 0)
+        actionBarToggle =
+            ActionBarDrawerToggle(this, binding.drawerLayout, binding.appBarMain.toolbar, 0, 0)
         binding.drawerLayout.addDrawerListener(actionBarToggle)
-        actionBarToggle.isDrawerIndicatorEnabled = true
-        actionBarToggle.syncState()
+        observe(viewModel.isHomePage) {
+            actionBarToggle.isDrawerIndicatorEnabled = it
+            actionBarToggle.syncState()
+        }
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
@@ -58,7 +59,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             )
             binding.appBarMain.toolbar.isVisible = it
         }
-
+        navController.navigate(
+            MobileNavigationDirections.actionHomeFragmentToWelcomeFragment()
+        )
         binding.signOut.setOnClickListener {
             authViewModel.signOut()
             navController.navigate(
@@ -90,11 +93,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         actionBarToggle.onConfigurationChanged(newConfig)
-    }
-
-    fun setHomeIndicator() {
-        actionBarToggle.isDrawerIndicatorEnabled = true
-        actionBarToggle.syncState()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

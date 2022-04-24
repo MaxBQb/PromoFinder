@@ -18,6 +18,7 @@ class HomeViewModel(
     private val promocodesRepository: PromocodesRepository,
 ) : ViewModel() {
     val query = MutableLiveData("")
+    var query2 = 0
     val selectedCompany = MutableLiveData<Company?>()
 
     val isSuggestionsVisible = MutableLiveData(false)
