@@ -6,7 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import edu.mirea_ikbo0619.promofinder.UserPreference
+import edu.mirea_ikbo0619.promofinder.network.content
+import edu.mirea_ikbo0619.promofinder.network.promocode_aggregator.model.ErrorResponse
+import edu.mirea_ikbo0619.promofinder.network.promocode_aggregator.model.first
+import edu.mirea_ikbo0619.promofinder.repository.CredentialsRepository
 import org.koin.android.annotation.KoinViewModel
+import retrofit2.HttpException
+
 
 abstract class AuthViewModel : ViewModel() {
     val isSignInSelected = ObservableBoolean(true)
@@ -15,6 +21,7 @@ abstract class AuthViewModel : ViewModel() {
     val password2 = ObservableField("")
     val isPasswordVisible = ObservableField(false)
     val email = ObservableField("")
+    var lastError: String? = null
     abstract val isAuthorized: LiveData<Boolean>
     abstract val isAnonymous: LiveData<Boolean>
     abstract val wasAuthorized: Boolean
@@ -24,14 +31,15 @@ abstract class AuthViewModel : ViewModel() {
     }
     abstract fun handleWasAuthorized(): Boolean
     abstract fun signInAnonymous(): Boolean
-    abstract fun signIn(): Boolean
-    abstract fun signUp(): Boolean
+    abstract suspend fun signIn(): Boolean
+    abstract suspend fun signUp(): Boolean
     abstract fun signOut()
 }
 
 @KoinViewModel
 class AuthViewModelImpl(
-    private val settings: UserPreference
+    private val settings: UserPreference,
+    private val credentials: CredentialsRepository
 ): AuthViewModel() {
     override val isAuthorized = MutableLiveData(false)
     override val wasAuthorized get() = settings.wasAuthorized
@@ -54,15 +62,42 @@ class AuthViewModelImpl(
         return true
     }
 
-    override fun signIn(): Boolean {
-        settings.token = "123"
-        authorize()
+    override suspend fun signIn(): Boolean {
+        try {
+            lastError = null
+            credentials.setCredentials(
+                email.get() ?: "",
+                password.get() ?: "",
+            )
+            authorize()
+        } catch (e: HttpException) {
+            if (e.code() == 400)
+                lastError = e.content<ErrorResponse>()?.first
+            return false
+        } catch (e: Throwable) {
+            e.printStackTrace()
+            return false
+        }
         return true
     }
 
-    override fun signUp(): Boolean {
-        settings.token = "123"
-        authorize()
+    override suspend fun signUp(): Boolean {
+        try {
+            lastError = null
+            credentials.setCredentials(
+                email.get()!!,
+                password.get()!!,
+                username.get()!!,
+            )
+            authorize()
+        } catch (e: HttpException) {
+            if (e.code() == 400)
+                lastError = e.content<ErrorResponse>()?.first
+            return false
+        } catch (e: Throwable) {
+            e.printStackTrace()
+            return false
+        }
         return true
     }
 

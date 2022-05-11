@@ -17,12 +17,13 @@
 
         <TextView
             style="@style/title"
-            android:text="@string/username_label" />
+            android:text="@string/email_label" />
 
         <EditText
             style="@style/bordered_input"
             android:drawableStart="@drawable/ic_user"
-            android:text="@={data.username}" />
+            android:inputType="textEmailAddress"
+            android:text="@={data.email}" />
 
         <TextView
             style="@style/title"

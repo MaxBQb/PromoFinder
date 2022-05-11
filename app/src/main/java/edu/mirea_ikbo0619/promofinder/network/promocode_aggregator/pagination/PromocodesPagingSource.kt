@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import edu.mirea_ikbo0619.promofinder.model.Promocode
 import edu.mirea_ikbo0619.promofinder.network.promocode_aggregator.PromocodeAggregatorService
-import edu.mirea_ikbo0619.promofinder.network.promocode_aggregator.fromPage
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -15,9 +14,7 @@ class PromocodesPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Promocode> {
         val position = params.key ?: 0
         return try {
-            val response = with(fromPage(position)) {
-                service.getPromocodes(companyId, get(0), get(1))
-            }
+            val response = service.getPromocodes(companyId, position)
             val items = response.items
             LoadResult.Page(
                 data = items,

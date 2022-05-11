@@ -45,12 +45,10 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         binding.companiesList.adapter = suggestionsAdapter
         binding.promocodesList.adapter = resultsAdapter
         observe(viewModel.query) {
-            viewModel.query2
             lifecycleScope.launch {
                 viewModel.getCompanies(it).collectLatest(suggestionsAdapter::submitData)
             }
         }
-        viewModel.query2++
         observe(viewModel.selectedCompany) {
             it ?: return@observe
             lifecycleScope.launch {
