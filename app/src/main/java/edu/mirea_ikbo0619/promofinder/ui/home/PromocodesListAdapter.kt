@@ -40,31 +40,30 @@ class PromocodesListAdapter :
 
     operator fun get(position: Int) = getItem(position)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val context = holder.binding.root.context
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = with(holder.binding) {
+        val context = root.context
         val item = getItem(position)
-        holder.binding.description.text =
+        description.text =
             item?.description ?: context.getString(R.string.loading_text)
         item?.let { item_ ->
-
-            holder.binding.expiresDate.text = context.getString(
+            expiresDate.text = context.getString(
                 R.string.expiration_date,
                 ZonedDateTime.parse(item_.expiration).format(DateTimeFormatter.ISO_LOCAL_DATE)
             )
-            holder.binding.root.setOnClickListener {
+            root.setOnClickListener {
                 if (position >= 0)
                     onItemClickListener?.invoke(it, item_, position)
             }
-            holder.binding.getPromocode.setOnClickListener {
+            getPromocode.setOnClickListener {
                 if (position >= 0)
                     onItemButtonClickListener?.invoke(it, item_, position)
             }
-            holder.binding.favourite.setOnClickListener {
+            favourite.setOnClickListener {
                 if (position >= 0)
                     onItemStarClickListener?.invoke(it, item_, position)
             }
         } ?: run {
-            holder.binding.expiresDate.text = context.getString(R.string.loading_text)
+            expiresDate.text = context.getString(R.string.loading_text)
         }
     }
 

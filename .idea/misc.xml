@@ -19,6 +19,7 @@
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_sign_out.xml" value="0.1065" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/ic_user.xml" value="0.1245" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/input_border.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/rounded_dialog_screen.xml" value="0.1135" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/rounded_edittext.xml" value="0.1065" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/rounded_edittext_base.xml" value="0.1065" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/drawable/search_box.xml" value="0.1065" />
@@ -35,7 +36,7 @@
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/home_fragment.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/login_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
-        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/promocode_fragment_item.xml" value="0.1" />
+        <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/promocode_fragment_item.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/promocode_fragment_item_list.xml" value="0.10512820512820513" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/row.xml" value="0.12008547008547009" />
         <entry key="..\:/AndroidDev/Project/PromoFinder/app/src/main/res/layout/signup_fragment.xml" value="0.1" />

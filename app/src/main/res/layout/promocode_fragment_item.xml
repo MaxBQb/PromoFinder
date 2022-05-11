@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -33,6 +34,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="8"
+                    tools:text="Очень длинное описание этого конкретного промокода, которое может привести к переполнению текстовым содержанием которого очень-очень много"
+                    android:ellipsize="end"
+                    android:maxLines="3"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />

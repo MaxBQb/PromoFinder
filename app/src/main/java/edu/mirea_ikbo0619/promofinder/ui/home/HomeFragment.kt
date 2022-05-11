@@ -1,14 +1,17 @@
 package edu.mirea_ikbo0619.promofinder.ui.home
 
+import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
 import com.wada811.databinding.dataBinding
@@ -70,7 +73,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                         && resultsAdapter.itemCount < 1)
             )
         }
-
+        resultsAdapter.onItemClickListener = { view, item, pos ->
+            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogCustom).apply {
+                setTitle(item.code)
+                setMessage(item.description)
+                setPositiveButton(R.string.button_get_promocode) { dialog, _ ->
+                    resultsAdapter.onItemButtonClickListener?.invoke(view, item, pos)
+                }
+                setCancelable(true)
+            }.create().show()
+        }
         resultsAdapter.onItemButtonClickListener = { _, item, _ ->
             val clipboard = getSystemService(requireContext(), ClipboardManager::class.java)!!
             val clip = ClipData.newPlainText(
