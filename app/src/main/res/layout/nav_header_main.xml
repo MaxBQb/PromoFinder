@@ -21,7 +21,6 @@
             android:layout_weight="2"
             android:scaleX="1.5"
             android:scaleY="1.5"
-            android:contentDescription="@string/nav_header_desc"
             app:srcCompat="@drawable/ic_logo" />
 
         <TextView

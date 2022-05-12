@@ -43,6 +43,9 @@
                     android:layout_height="wrap_content"
                     app:icon="@{auth.isAnonymous ? @drawable/ic_authorize : @drawable/ic_sign_out, default=@drawable/ic_sign_out}"
                     style="@style/nav_button"
+                    android:fontFamily="sans-serif"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="@color/white"
                     android:text="@{auth.isAnonymous ? @string/menu_sign_up : @string/menu_sign_out, default=@string/menu_sign_out}"
                     />
         </com.google.android.material.navigation.NavigationView>

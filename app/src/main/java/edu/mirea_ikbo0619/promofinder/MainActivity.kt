@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
+            setOf(R.id.nav_home),
             binding.drawerLayout
         )
         authViewModel.isAuthorized.observe(this) {
